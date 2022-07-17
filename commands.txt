@@ -1,0 +1,35 @@
+
+cd [file | dir]				#change directory
+rm [file | dir]				#remove file or directory
+cp [file | dir]				#copy file or directory
+mv [file | dir] 			#move file or directory
+hostnamectl set-hostname [hostname]	#change hostname
+adduser [username]			#add a new user
+adduser [username] sudo			#add the user to sudo group (allow root commands)
+userdel [username]			#deleting user
+chmod [u+r, g-w, o-x, a-r ... (
+	u - user,
+	g - group,
+	o - others,
+	a - all )
+        (
+	r - read,
+	w - write,
+	x - execute ) ] 
+    [file name | dir name]		#change access of file or directory (change mode)
+chown [user] [file | dir]		#change owner of file or directory
+
+ufw default allow outgoing
+ufw default deny incoming
+ufw allow ssh
+ufw allow [port number]
+ufw enable
+ufw disable
+ufw status
+ufw deny from [IP address] 
+
+python3 -m venv [dir name] 		#create a new virtual environment
+source [venv name]/bin/activate 	#activate the virtual environment
+deactivate 				#deactivate the virtual environment
+
+sudo apt-get install libapache2-mod-wsgi-py3
