@@ -32,4 +32,6 @@ python3 -m venv [dir name] 		#create a new virtual environment
 source [venv name]/bin/activate 	#activate the virtual environment
 deactivate 				#deactivate the virtual environment
 
+wget
+
 sudo apt-get install libapache2-mod-wsgi-py3
