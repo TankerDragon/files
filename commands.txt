@@ -34,4 +34,37 @@ deactivate 				#deactivate the virtual environment
 
 wget
 
-sudo apt-get install libapache2-mod-wsgi-py3
+###########
+### git ###
+###########
+
+git reset --hard
+git clean -fxd
+
+#############
+### mysql ###
+#############
+
+'root'@'localhost' indentified WITH mysql_native_password BY  'password';
+flush privileges;
+
+##############
+### ubuntu ###
+##############
+
+# apache for python
+apt-get install libapache2-mod-wsgi-py3
+
+# mysql
+sudo apt install mysql-server
+sudo apt install mysql-client
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+
+###################
+###package names###
+###################
+
+djangorestframework
+djoser
+django-cors-headers
+django-debug-toolbar

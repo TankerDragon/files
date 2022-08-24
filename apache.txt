@@ -1,0 +1,36 @@
+########################################
+### how to install apache for django ###
+########################################
+
+sudo apt-get install apache2 
+sudo apt-get install libapache2-mod-wsgi-py3
+
+cd /etc/apache2/sites-available/
+sudo cp 000-default.conf django_project.conf
+
+sudo vim django_project.conf
+
+### uncomment ServerName and write server domain name if you have
+
+### and add these to the bottom of the file before closing tag
+
+	Alias /static /home/dragon/eld/static
+        <Directory /home/dragon/eld/static>
+                Require all granted
+        </Directory>
+
+        <Directory /home/dragon/eld/eld>
+                <Files wsgi.py>
+                        Require all granted
+                </Files>
+        </Directory>
+
+        WSGIScriptAlias / /home/dragon/eld/eld/wsgi.py
+        WSGIDaemonProcess django_app python-path=/home/dragon/eld python-home=/home/dragon/venv
+        WSGIProcessGroup django_app
+###
+
+sudo a2ensite django_project
+sudo a2dissite 000-default.conf
+
+sudo service apache2 restart
