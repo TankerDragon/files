@@ -45,7 +45,7 @@ git clean -fxd
 ### mysql ###
 #############
 
-'root'@'localhost' indentified WITH mysql_native_password BY  'password';
+ALTER USER 'root'@'localhost' indentified WITH mysql_native_password BY  'password';
 flush privileges;
 
 ##############
