@@ -1,0 +1,7 @@
+########################
+### djoser in apache ###
+########################
+
+# we need to add this line in .conf file to get header of request 
+
+WSGIPassAuthorization On
