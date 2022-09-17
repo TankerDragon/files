@@ -1,0 +1,7 @@
+ 
+### installation of celery ###
+
+
+celery -A accounting worker --loglevel=info
+celery -A accounting beat
+celery -A accounting flower
