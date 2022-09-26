@@ -1,8 +1,10 @@
-from django.urls import path, include
 
+
+from django.urls import path
 from . import views
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    path('', views.ping)
+    
+    path('', views.ping),
+    path('data/<str:code>', views.getData)
 ]

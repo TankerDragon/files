@@ -6,4 +6,9 @@ from .models import Log
 class LogSerializer(ModelSerializer):
     class Meta:
         model = Log
-        fields = ['data', 'is_overloaded']
+        fields = ['data', 'code', 'is_overloaded']
+
+class GetLogSerializer(ModelSerializer):
+    class Meta:
+        model = Log
+        fields = ['date', 'data', 'code', 'is_overloaded']
