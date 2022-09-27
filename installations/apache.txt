@@ -37,6 +37,10 @@ sudo a2dissite 000-default.conf
 
 sudo service apache2 restart
 
-#######################################3
+#######################################
 # if WSGI does not work try this 
 sudo a2enmod wsgi
+
+########################################
+# how to allow authorization headers
+WSGIPassAuthorization On

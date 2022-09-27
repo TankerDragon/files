@@ -11,4 +11,4 @@ class LogSerializer(ModelSerializer):
 class GetLogSerializer(ModelSerializer):
     class Meta:
         model = Log
-        fields = ['date', 'data', 'code', 'is_overloaded']
+        fields = ['date', 'time', 'data', 'code', 'is_overloaded']

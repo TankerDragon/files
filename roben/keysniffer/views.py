@@ -1,7 +1,9 @@
 
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.pagination import PageNumberPagination
 # models
 from .models import Log
 # serializers
@@ -59,11 +61,12 @@ KEYS = [
 ]
 
 @api_view(['GET', 'POST'])
+@permission_classes([AllowAny])
 def ping(request):
     if request.method == 'GET':
         return Response(status=status.HTTP_200_OK)
 
-    if request.method == 'POST':
+    if request.method == 'POST': 
         print(request.data)
         print(request.headers)
 
@@ -81,11 +84,15 @@ def ping(request):
 
 
 @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def getData(request, code):
+    paginator = PageNumberPagination()
+    paginator.page_size = 3
     query = Log.objects.filter(code=code)
+    result_page = paginator.paginate_queryset(query, request)
+    logSerializer = GetLogSerializer(result_page, many=True)
 
-    logSerializer = GetLogSerializer(query, many=True)
+    # adding readable data
     for l in logSerializer.data:
         data = l["data"].split(',')
         humanReadableData = ""
