@@ -48,6 +48,9 @@ git clean -fxd
 ALTER USER 'root'@'localhost' identified WITH mysql_native_password BY  'password';
 flush privileges;
 
+# updating data
+UPDATE mytable SET column1 = value1, column2 = value2 WHERE key_value = some_value;
+
 ##############
 ### ubuntu ###
 ##############
