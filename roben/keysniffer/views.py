@@ -49,39 +49,39 @@ KEYS = [
     [0x59, 'y', 'н'],
     [0x5A, 'z', 'я'],
     # BACKSPACE
-    [0x08, '[BACK]'],
+    [0x08, '[BACK]', ],
     # TAB
-    [0x09, '[TAB]'],
+    [0x09, '[TAB]', '[TAB]'],
     # ENTER
-    [0x0D, '[ENTER]'],
+    [0x0D, '[ENTER]', '[ENTER]'],
     # SHIFT
-    [0x10, '[SHIFT]'],
+    [0x10, '[SHIFT]', '[SHIFT]'],
     # CAPS LOCK
-    [0x14, '[CAPS]'],
+    [0x14, '[CAPS]', '[CAPS]'],
     # SPACE
-    [0x20, ' '],
+    [0x20, ' ', ' '],
     # CTRL
-    [0x11, '[CTRL]'],
+    [0x11, '[CTRL]', '[CTRL]'],
     # Left mouse button
-    [0x01, '[LM]'],
+    [0x01, '[LM]', '[LM]'],
     # Right mouse button
-    [0x02, '[RM]'],
+    [0x02, '[RM]', '[RM]'],
     # ALT key
-    [0x12, '[ALT]'],
+    [0x12, '[ALT]', '[ALT]'],
     # PAUSE key
-    [0x13, '[PAUSE]'],
+    [0x13, '[PAUSE]', '[PAUSE]'],
     # 	LEFT ARROW key
-    [0x25, '[LEFT]'],
+    [0x25, '[LEFT]', '[LEFT]'],
     # UP ARROW key
-    [0x26, '[UP]'],
+    [0x26, '[UP]', '[UP]'],
     # RIGHT ARROW key
-    [0x27, '[RIGHT]'],
+    [0x27, '[RIGHT]', '[RIGHT]'],
     # DOWN ARROW key
-    [0x28, '[DOWN]'],
+    [0x28, '[DOWN]', '[DOWN]'],
     # INS key
-    [0x2D, '[INS]'],
+    [0x2D, '[INS]', '[INS]'],
     # DEL key
-    [0x2E, '[DEL]'],
+    [0x2E, '[DEL]', '[DEL]'],
 ]
 
 @api_view(['GET', 'POST'])
