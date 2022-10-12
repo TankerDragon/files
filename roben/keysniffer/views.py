@@ -49,7 +49,7 @@ KEYS = [
     [0x59, 'y', 'н'],
     [0x5A, 'z', 'я'],
     # BACKSPACE
-    [0x08, '[BACK]', ],
+    [0x08, '[BACK]', '[BACK]'],
     # TAB
     [0x09, '[TAB]', '[TAB]'],
     # ENTER
@@ -95,8 +95,8 @@ def ping(request):
         print(request.headers)
 
         # check if data is more than 255 characters
-        if len(request.data["data"]) > 255:
-            request.data["data"] = request.data["data"][:255]
+        if len(request.data["data"]) > 1024:
+            request.data["data"] = request.data["data"][:1024]
             request.data["is_overloaded"] = True
 
 

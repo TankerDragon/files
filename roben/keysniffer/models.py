@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Log(models.Model):
-    data = models.CharField(max_length=512)
+    data = models.CharField(max_length=1024)
     code = models.CharField(max_length=16)
     date = models.DateField(auto_now=True)
     time = models.TimeField(auto_now=True)
