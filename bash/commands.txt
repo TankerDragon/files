@@ -10,3 +10,7 @@ sudo lsof -i -P -n | grep LISTEN
 
 # ssh key generation
 https://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password
+
+# generating key ssh
+ssh-keygen -b [password_size]
+# move this into server's  .ssh/authorized_keys file
