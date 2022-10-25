@@ -14,3 +14,7 @@ https://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password
 # generating key ssh
 ssh-keygen -b [password_size]
 # move this into server's  .ssh/authorized_keys file
+
+# ssh login using command with password
+# install sshpass
+sshpass -p "password" ssh user@site.com
