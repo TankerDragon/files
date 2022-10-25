@@ -1,0 +1,9 @@
+
+# edit file 
+ sed -i 's/X/f/' text.py
+
+# sending email 
+echo "second sample message" | mail -s "TEST" akbarisroilovdragon@gmail.com
+
+# listen to all ports
+sudo lsof -i -P -n | grep LISTEN
