@@ -7,3 +7,6 @@ echo "second sample message" | mail -s "TEST" akbarisroilovdragon@gmail.com
 
 # listen to all ports
 sudo lsof -i -P -n | grep LISTEN
+
+# ssh key generation
+https://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password
