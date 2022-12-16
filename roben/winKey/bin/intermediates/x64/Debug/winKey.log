@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\Nick\Desktop\files\roben\winKey\winKey\main.cpp(104,47): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+  winKey.vcxproj -> C:\Users\Nick\Desktop\files\roben\winKey\bin\x64\Debug\winKey.exe
