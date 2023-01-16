@@ -1,6 +1,7 @@
 from hashlib import new
 import string
 from telethon import TelegramClient, events
+from telethon.tl.types import PeerUser, PeerChannel, PeerChat
 import datetime
 
 ############
@@ -39,8 +40,24 @@ myChannelIDs = [-1001279009032,  #UZBroker-cha
                 -1001446810164,  #Trucking Dispatching
                 ]     
 
-@client.on(events.NewMessage(chats=myChannelIDs))
-async def my_event_handler(event):    
+@client.on(events.NewMessage()) # chats=myChannelIDs
+async def my_event_handler(event): 
+    print(event)
+    print("################################")
+    print()
+
+    if type(event.peer_id) == PeerUser:
+        print("from user: ", event.peer_id.user_id)
+
+    if type(event.peer_id) == PeerChannel:
+        print("from group: ", event.peer_id.channel_id)
+
+    print("message: ", event.message.message)
+    
+
+
+
+    print()
     # print(event.peer_id.channel_id)  #qaysi kanaldan keldi?
     # print('######', event)
     # if event.from_id != None:
@@ -50,9 +67,10 @@ async def my_event_handler(event):
     # print(event.date + datetime.timedelta(hours=5))  #jo'natilgan vaqt Toshkent vaqti
     # print(event.text)                #matn
     # print('********************************************************')
-    data.append(Fish(currend_id, event.peer_id.channel_id, event.message.id, event.date + datetime.timedelta(hours=5), event.text))
-    currend_id += 1
-    print(len(data))
+
+    #data.append(Fish(currend_id, event.peer_id.channel_id, event.message.id, event.date + datetime.timedelta(hours=5), event.text))
+    #currend_id += 1
+    #print(len(data))
     # print(event)
 
 client.start()
