@@ -42,7 +42,7 @@ myChannelIDs = [-1001279009032,  #UZBroker-cha
 
 @client.on(events.NewMessage()) # chats=myChannelIDs
 async def my_event_handler(event): 
-    print(event)
+    #print(event)
     print("################################")
     print()
 
@@ -53,6 +53,8 @@ async def my_event_handler(event):
         print("from group: ", event.peer_id.channel_id)
 
     print("message: ", event.message.message)
+
+    await event.message.forward_to(992519627)
     
 
 
