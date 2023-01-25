@@ -1,44 +1,18 @@
-from hashlib import new
 import string
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerUser, PeerChannel, PeerChat
-import datetime
-
-############
-class Fish():
-    def __init__(self, id, ch_id, ms_id, ti, te):
-        self.id = id
-        self.channel_id = ch_id
-        self.message_id = ms_id
-        self.time = ti
-        self.text = te
-
-
+import asyncio
+import threading
 
 # Use your own values from my.telegram.org
-api_id = 19217253
-api_hash = 'a54f03b2dbe152fd65e26e4549ec8fe9'
+api_id = 15193518
+api_hash = '504ab7ab95614155f137244e819b5e91'
 
-data = []
-currend_id = 0
-
+phone_number = "+18655004689"
+phone_number = "+998901558090"
+passw = "@dragon$"
 
 client = TelegramClient('session', api_id, api_hash)
-
-myChannelIDs = [-1001279009032,  #UZBroker-cha
-                -1001170427503,  #All about trucks
-                -1001200307642,  #UTXL
-                -1001588755123,  #redwood load requests
-                -1001260797603,  #fedex ups amazon
-                -1001446810164,  #Trucking Dispatching has ID 
-                -1001400105693,  #Truckers.group has ID 
-                -1001493152718,  #UZBroker - chat
-                -1001405278937,  #Dispatch Time
-                -1001730877604,  #GOLD All About TRUCKS
-                -1001461660790,  # Trucking Dispatching Brokers
-                -1001400105693,  #Truckers.group
-                -1001446810164,  #Trucking Dispatching
-                ]     
 
 @client.on(events.NewMessage()) # chats=myChannelIDs
 async def my_event_handler(event): 
@@ -56,11 +30,34 @@ async def my_event_handler(event):
 
     await event.message.forward_to(992519627)
     
-
-
-
     print()
-    # print(event.peer_id.channel_id)  #qaysi kanaldan keldi?
+
+
+# custom login instead of .start()
+async def main():
+    print("######")
+    await client.connect()
+    print("######")
+    auth = await client.is_user_authorized()
+    if not auth:
+        await client.send_code_request(phone_number)
+        me = await client.sign_in(phone_number, input('Enter code: '), password=passw) # , password="@dragon$"
+
+
+#t1 = threading.Thread(target=asyncio.run, args=(main(), ))
+#t1.start()
+#t1.join()
+
+################
+
+
+#client.start(phone_number)
+client.start()
+client.run_until_disconnected()
+
+
+
+# print(event.peer_id.channel_id)  #qaysi kanaldan keldi?
     # print('######', event)
     # if event.from_id != None:
         # print(event.from_id.user_id)     #.user_id   kim jo'natdi?
@@ -75,11 +72,7 @@ async def my_event_handler(event):
     #print(len(data))
     # print(event)
 
-client.start()
-client.run_until_disconnected()
 
-def get_data(id):
-    fuk()
 
 #bir sutka davomida chiqqan yuklarni hammasini DIV qilib olsin, 
 #kerSSak bo'lganlarini, search qilib bersin. Type qilishi bilan filtrlanaversin.

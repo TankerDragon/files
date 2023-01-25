@@ -1,12 +1,14 @@
-FROM ubuntu:latest
+FROM python:3.8-slim-buster
 
-RUN apt update
-RUN apt install python3 -y
-RUN apt install python3-pip -y
+WORKDIR /app
+
+#COPY requirements.txt requirements.txt
+
 RUN pip3 install telethon
 
-WORKDIR /usr/app/src
+COPY . .
 
-COPY client.py ./
+EXPOSE 8000
 
-CMD [ "python3", "./client.py" ]
+CMD ["python3", "client.py"]
+
